@@ -14,6 +14,7 @@ load_dotenv()
 SCORES_FILE = Path(__file__).parent / "scores.json"
 RANKED_HISTORY_FILE = Path(__file__).parent / "ranked_history.json"
 RANKED_POINTS_FILE = Path(__file__).parent / "ranked_points.json"
+STATE_FILE = Path(__file__).parent / "bot_state.json"
 
 # Rank tiers: (name, min_points) — everyone starts in Bronze (50 pts)
 RANK_TIERS = [
@@ -471,6 +472,21 @@ def archive_completed_periods(scores_data: dict) -> None:
         save_ranked_points(rp_data)
 
 
+# --- Bot state (for catch-up after downtime) ---
+
+
+def load_state() -> dict:
+    if STATE_FILE.exists():
+        with open(STATE_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {}
+
+
+def save_state(data: dict) -> None:
+    with open(STATE_FILE, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+
 # --- Bot setup ---
 
 intents = discord.Intents.default()
@@ -483,6 +499,51 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     print(f"Wordle Tracker is online as {bot.user}")
+
+    # --- Catch-up: process any Wordle messages we missed while offline ---
+    state = load_state()
+    channel_id = state.get("channel_id")
+    last_message_id = state.get("last_message_id")
+
+    if not channel_id or not last_message_id:
+        print("No previous state found — skipping catch-up. Run !scan to backfill.")
+        return
+
+    channel = bot.get_channel(channel_id)
+    if not channel:
+        print(f"Could not find channel {channel_id} for catch-up.")
+        return
+
+    print(f"Catching up on missed messages in #{channel.name}...")
+    member_map = {}
+    if channel.guild:
+        member_map = {m.id: m.display_name for m in channel.guild.members}
+
+    caught_up = 0
+    new_last_id = last_message_id
+
+    try:
+        async for message in channel.history(limit=500, after=discord.Object(id=last_message_id), oldest_first=True):
+            new_last_id = message.id
+            results = parse_wordle_message(message.content, member_map)
+            if results:
+                date_key = message.created_at.strftime("%Y-%m-%d")
+                added = record_scores(results, date_key)
+                if added > 0:
+                    rp_data = load_ranked_points()
+                    award_daily_points(rp_data, results, date_key)
+                    save_ranked_points(rp_data)
+                    caught_up += added
+    except Exception as e:
+        print(f"Catch-up error: {e}")
+
+    if caught_up > 0:
+        archive_completed_periods(load_scores())
+        print(f"Catch-up complete! Added {caught_up} missed score(s).")
+    else:
+        print("No missed Wordle messages found.")
+
+    save_state({"channel_id": channel_id, "last_message_id": new_last_id})
 
 
 @bot.event
@@ -513,6 +574,9 @@ async def on_message(message: discord.Message):
             )
         else:
             await message.channel.send("ℹ️ These scores were already recorded.")
+
+        # Track this channel + message for catch-up after restarts
+        save_state({"channel_id": message.channel.id, "last_message_id": message.id})
 
     # Ensure prefix commands still work
     await bot.process_commands(message)
@@ -930,6 +994,12 @@ async def wordle_scan(ctx: commands.Context):
     if all_scores:
         recalculate_all_ranked_points(all_scores)
         rebuild_ranked_history(all_scores)
+
+    # Save state so catch-up works after restart
+    # Get the latest message in the channel to use as checkpoint
+    last_msg = [m async for m in ctx.channel.history(limit=1)]
+    if last_msg:
+        save_state({"channel_id": ctx.channel.id, "last_message_id": last_msg[0].id})
 
     if total_added > 0:
         await ctx.send(
