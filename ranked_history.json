@@ -1,0 +1,1267 @@
+{
+  "weekly": {
+    "2025-W47": {
+      "start": "2025-11-17",
+      "end": "2025-11-23",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Roronoa Zoro",
+          "avg": 3.4,
+          "games": 5,
+          "weighted": 4.43
+        },
+        {
+          "rank": 2,
+          "player": "Kira",
+          "avg": 4.2,
+          "games": 5,
+          "weighted": 5.0
+        },
+        {
+          "rank": 3,
+          "player": "Stonie",
+          "avg": 3.75,
+          "games": 4,
+          "weighted": 5.14
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 4.6,
+          "games": 5,
+          "weighted": 5.29
+        },
+        {
+          "rank": 5,
+          "player": "Jules Bracke",
+          "avg": 4.6,
+          "games": 5,
+          "weighted": 5.29
+        },
+        {
+          "rank": 6,
+          "player": "oxelo",
+          "avg": 4.0,
+          "games": 3,
+          "weighted": 5.71
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 4.33,
+          "games": 3,
+          "weighted": 5.86
+        },
+        {
+          "rank": 8,
+          "player": "Griffith",
+          "avg": 5.4,
+          "games": 5,
+          "weighted": 5.86
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 5.67,
+          "games": 3,
+          "weighted": 6.43
+        }
+      ]
+    },
+    "2025-W48": {
+      "start": "2025-11-24",
+      "end": "2025-11-30",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Roronoa Zoro",
+          "avg": 2.83,
+          "games": 6,
+          "weighted": 3.43
+        },
+        {
+          "rank": 2,
+          "player": "Jules Bracke",
+          "avg": 3.17,
+          "games": 6,
+          "weighted": 3.71
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 3.5,
+          "games": 6,
+          "weighted": 4.0
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 3.83,
+          "games": 6,
+          "weighted": 4.29
+        },
+        {
+          "rank": 5,
+          "player": "Stonie",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 7,
+          "player": "Kira",
+          "avg": 4.5,
+          "games": 6,
+          "weighted": 4.86
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.83,
+          "games": 6,
+          "weighted": 6.0
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 6.25,
+          "games": 4,
+          "weighted": 6.57
+        }
+      ]
+    },
+    "2025-W49": {
+      "start": "2025-12-01",
+      "end": "2025-12-07",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.5,
+          "games": 6,
+          "weighted": 4.0
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 2.25,
+          "games": 4,
+          "weighted": 4.29
+        },
+        {
+          "rank": 3,
+          "player": "Kira",
+          "avg": 3.6,
+          "games": 5,
+          "weighted": 4.57
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 3.6,
+          "games": 5,
+          "weighted": 4.57
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 3.8,
+          "games": 5,
+          "weighted": 4.71
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 2,
+          "weighted": 6.14
+        },
+        {
+          "rank": 7,
+          "player": "Roronoa Zoro",
+          "avg": 1.0,
+          "games": 1,
+          "weighted": 6.14
+        },
+        {
+          "rank": 8,
+          "player": "Miesvdb",
+          "avg": 5.67,
+          "games": 3,
+          "weighted": 6.43
+        },
+        {
+          "rank": 9,
+          "player": "oxelo",
+          "avg": 5.67,
+          "games": 3,
+          "weighted": 6.43
+        }
+      ]
+    },
+    "2025-W50": {
+      "start": "2025-12-08",
+      "end": "2025-12-14",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.43,
+          "games": 7,
+          "weighted": 3.43
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 3.4,
+          "games": 5,
+          "weighted": 4.43
+        },
+        {
+          "rank": 3,
+          "player": "ambufire",
+          "avg": 4.43,
+          "games": 7,
+          "weighted": 4.43
+        },
+        {
+          "rank": 4,
+          "player": "Kira",
+          "avg": 4.17,
+          "games": 6,
+          "weighted": 4.57
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 4.57,
+          "games": 7,
+          "weighted": 4.57
+        },
+        {
+          "rank": 6,
+          "player": "Robin",
+          "avg": 5.0,
+          "games": 7,
+          "weighted": 5.0
+        },
+        {
+          "rank": 7,
+          "player": "oxelo",
+          "avg": 5.33,
+          "games": 6,
+          "weighted": 5.57
+        },
+        {
+          "rank": 8,
+          "player": "Miesvdb",
+          "avg": 5.75,
+          "games": 4,
+          "weighted": 6.29
+        },
+        {
+          "rank": 9,
+          "player": "Roronoa Zoro",
+          "avg": 2.0,
+          "games": 1,
+          "weighted": 6.29
+        }
+      ]
+    },
+    "2025-W51": {
+      "start": "2025-12-15",
+      "end": "2025-12-21",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Stonie",
+          "avg": 4.0,
+          "games": 7,
+          "weighted": 4.0
+        },
+        {
+          "rank": 2,
+          "player": "Jules Bracke",
+          "avg": 4.0,
+          "games": 7,
+          "weighted": 4.0
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.29,
+          "games": 7,
+          "weighted": 4.29
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 4.29,
+          "games": 7,
+          "weighted": 4.29
+        },
+        {
+          "rank": 5,
+          "player": "ambufire",
+          "avg": 4.43,
+          "games": 7,
+          "weighted": 4.43
+        },
+        {
+          "rank": 6,
+          "player": "Kira",
+          "avg": 4.86,
+          "games": 7,
+          "weighted": 4.86
+        },
+        {
+          "rank": 7,
+          "player": "oxelo",
+          "avg": 5.83,
+          "games": 6,
+          "weighted": 6.0
+        },
+        {
+          "rank": 8,
+          "player": "Roronoa Zoro",
+          "avg": 6.0,
+          "games": 1,
+          "weighted": 6.86
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 7.0,
+          "games": 1,
+          "weighted": 7.0
+        }
+      ]
+    },
+    "2025-W52": {
+      "start": "2025-12-22",
+      "end": "2025-12-28",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Stonie",
+          "avg": 4.14,
+          "games": 7,
+          "weighted": 4.14
+        },
+        {
+          "rank": 2,
+          "player": "Jules Bracke",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 3,
+          "player": "Griffith",
+          "avg": 4.17,
+          "games": 6,
+          "weighted": 4.57
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 4.33,
+          "games": 6,
+          "weighted": 4.71
+        },
+        {
+          "rank": 5,
+          "player": "Kira",
+          "avg": 5.0,
+          "games": 7,
+          "weighted": 5.0
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 5.2,
+          "games": 5,
+          "weighted": 5.71
+        },
+        {
+          "rank": 7,
+          "player": "oxelo",
+          "avg": 5.8,
+          "games": 5,
+          "weighted": 6.14
+        }
+      ]
+    },
+    "2026-W01": {
+      "start": "2025-12-29",
+      "end": "2026-01-04",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Stonie",
+          "avg": 4.43,
+          "games": 7,
+          "weighted": 4.43
+        },
+        {
+          "rank": 2,
+          "player": "Kira",
+          "avg": 4.71,
+          "games": 7,
+          "weighted": 4.71
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.5,
+          "games": 6,
+          "weighted": 4.86
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 4.5,
+          "games": 6,
+          "weighted": 4.86
+        },
+        {
+          "rank": 5,
+          "player": "Jules Bracke",
+          "avg": 4.0,
+          "games": 5,
+          "weighted": 4.86
+        },
+        {
+          "rank": 6,
+          "player": "oxelo",
+          "avg": 5.5,
+          "games": 6,
+          "weighted": 5.71
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 2,
+          "weighted": 6.14
+        }
+      ]
+    },
+    "2026-W02": {
+      "start": "2026-01-05",
+      "end": "2026-01-11",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 4.14,
+          "games": 7,
+          "weighted": 4.14
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.29,
+          "games": 7,
+          "weighted": 4.29
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 4.83,
+          "games": 6,
+          "weighted": 5.14
+        },
+        {
+          "rank": 5,
+          "player": "Kira",
+          "avg": 4.0,
+          "games": 4,
+          "weighted": 5.29
+        },
+        {
+          "rank": 6,
+          "player": "Roronoa Zoro",
+          "avg": 3.0,
+          "games": 1,
+          "weighted": 6.43
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 5.5,
+          "games": 2,
+          "weighted": 6.57
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 6.0,
+          "games": 2,
+          "weighted": 6.71
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 7.0,
+          "games": 2,
+          "weighted": 7.0
+        }
+      ]
+    },
+    "2026-W03": {
+      "start": "2026-01-12",
+      "end": "2026-01-18",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.71,
+          "games": 7,
+          "weighted": 3.71
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 3.86,
+          "games": 7,
+          "weighted": 3.86
+        },
+        {
+          "rank": 3,
+          "player": "ambufire",
+          "avg": 3.83,
+          "games": 6,
+          "weighted": 4.29
+        },
+        {
+          "rank": 4,
+          "player": "Kira",
+          "avg": 4.43,
+          "games": 7,
+          "weighted": 4.43
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 4.2,
+          "games": 5,
+          "weighted": 5.0
+        },
+        {
+          "rank": 6,
+          "player": "Robin",
+          "avg": 5.29,
+          "games": 7,
+          "weighted": 5.29
+        },
+        {
+          "rank": 7,
+          "player": "Roronoa Zoro",
+          "avg": 4.0,
+          "games": 4,
+          "weighted": 5.29
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.4,
+          "games": 5,
+          "weighted": 5.86
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 6.6,
+          "games": 5,
+          "weighted": 6.71
+        }
+      ]
+    },
+    "2026-W04": {
+      "start": "2026-01-19",
+      "end": "2026-01-25",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.43,
+          "games": 7,
+          "weighted": 3.43
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.14,
+          "games": 7,
+          "weighted": 4.14
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.14,
+          "games": 7,
+          "weighted": 4.14
+        },
+        {
+          "rank": 4,
+          "player": "Roronoa Zoro",
+          "avg": 3.67,
+          "games": 6,
+          "weighted": 4.14
+        },
+        {
+          "rank": 5,
+          "player": "Kira",
+          "avg": 4.43,
+          "games": 7,
+          "weighted": 4.43
+        },
+        {
+          "rank": 6,
+          "player": "Griffith",
+          "avg": 5.0,
+          "games": 7,
+          "weighted": 5.0
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 4.8,
+          "games": 5,
+          "weighted": 5.43
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.57,
+          "games": 7,
+          "weighted": 5.57
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 6.29,
+          "games": 7,
+          "weighted": 6.29
+        }
+      ]
+    },
+    "2026-W05": {
+      "start": "2026-01-26",
+      "end": "2026-02-01",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.67,
+          "games": 6,
+          "weighted": 4.14
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 3,
+          "player": "Griffith",
+          "avg": 4.0,
+          "games": 6,
+          "weighted": 4.43
+        },
+        {
+          "rank": 4,
+          "player": "Kira",
+          "avg": 4.67,
+          "games": 6,
+          "weighted": 5.0
+        },
+        {
+          "rank": 5,
+          "player": "Robin",
+          "avg": 4.2,
+          "games": 5,
+          "weighted": 5.0
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 3.33,
+          "games": 3,
+          "weighted": 5.43
+        },
+        {
+          "rank": 7,
+          "player": "Roronoa Zoro",
+          "avg": 4.0,
+          "games": 3,
+          "weighted": 5.71
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.2,
+          "games": 5,
+          "weighted": 5.71
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 5.0,
+          "games": 3,
+          "weighted": 6.14
+        }
+      ]
+    },
+    "2026-W06": {
+      "start": "2026-02-02",
+      "end": "2026-02-08",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Kira",
+          "avg": 4.5,
+          "games": 6,
+          "weighted": 4.86
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.83,
+          "games": 6,
+          "weighted": 5.14
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.5,
+          "games": 4,
+          "weighted": 5.57
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 4.33,
+          "games": 3,
+          "weighted": 5.86
+        },
+        {
+          "rank": 5,
+          "player": "Miesvdb",
+          "avg": 6.0,
+          "games": 5,
+          "weighted": 6.29
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 1,
+          "weighted": 6.57
+        },
+        {
+          "rank": 7,
+          "player": "Jules Bracke",
+          "avg": 4.0,
+          "games": 1,
+          "weighted": 6.57
+        }
+      ]
+    },
+    "2026-W07": {
+      "start": "2026-02-09",
+      "end": "2026-02-15",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Robin",
+          "avg": 3.5,
+          "games": 6,
+          "weighted": 4.0
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 3.0,
+          "games": 5,
+          "weighted": 4.14
+        },
+        {
+          "rank": 3,
+          "player": "Jules Bracke",
+          "avg": 4.17,
+          "games": 6,
+          "weighted": 4.57
+        },
+        {
+          "rank": 4,
+          "player": "Griffith",
+          "avg": 3.8,
+          "games": 5,
+          "weighted": 4.71
+        },
+        {
+          "rank": 5,
+          "player": "Miesvdb",
+          "avg": 5.2,
+          "games": 5,
+          "weighted": 5.71
+        },
+        {
+          "rank": 6,
+          "player": "Kira",
+          "avg": 4.0,
+          "games": 1,
+          "weighted": 6.57
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 1,
+          "weighted": 6.57
+        }
+      ]
+    },
+    "2026-W08": {
+      "start": "2026-02-16",
+      "end": "2026-02-22",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.8,
+          "games": 5,
+          "weighted": 4.71
+        },
+        {
+          "rank": 2,
+          "player": "Miesvdb",
+          "avg": 4.5,
+          "games": 6,
+          "weighted": 4.86
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.2,
+          "games": 5,
+          "weighted": 5.0
+        },
+        {
+          "rank": 4,
+          "player": "Stonie",
+          "avg": 4.5,
+          "games": 4,
+          "weighted": 5.57
+        },
+        {
+          "rank": 5,
+          "player": "ambufire",
+          "avg": 3.0,
+          "games": 2,
+          "weighted": 5.86
+        },
+        {
+          "rank": 6,
+          "player": "Griffith",
+          "avg": 3.5,
+          "games": 2,
+          "weighted": 6.0
+        },
+        {
+          "rank": 7,
+          "player": "Roronoa Zoro",
+          "avg": 7.0,
+          "games": 1,
+          "weighted": 7.0
+        }
+      ]
+    },
+    "2026-W09": {
+      "start": "2026-02-23",
+      "end": "2026-03-01",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Stonie",
+          "avg": 4.29,
+          "games": 7,
+          "weighted": 4.29
+        },
+        {
+          "rank": 2,
+          "player": "Jules Bracke",
+          "avg": 4.86,
+          "games": 7,
+          "weighted": 4.86
+        },
+        {
+          "rank": 3,
+          "player": "ambufire",
+          "avg": 4.4,
+          "games": 5,
+          "weighted": 5.14
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 5.2,
+          "games": 5,
+          "weighted": 5.71
+        },
+        {
+          "rank": 5,
+          "player": "Miesvdb",
+          "avg": 5.4,
+          "games": 5,
+          "weighted": 5.86
+        },
+        {
+          "rank": 6,
+          "player": "Griffith",
+          "avg": 3.5,
+          "games": 2,
+          "weighted": 6.0
+        }
+      ]
+    },
+    "2026-W10": {
+      "start": "2026-03-02",
+      "end": "2026-03-08",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 4.14,
+          "games": 7,
+          "weighted": 4.14
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.67,
+          "games": 6,
+          "weighted": 5.0
+        },
+        {
+          "rank": 3,
+          "player": "ambufire",
+          "avg": 4.2,
+          "games": 5,
+          "weighted": 5.0
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 4.4,
+          "games": 5,
+          "weighted": 5.14
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 4.8,
+          "games": 5,
+          "weighted": 5.43
+        },
+        {
+          "rank": 6,
+          "player": "Miesvdb",
+          "avg": 4.75,
+          "games": 4,
+          "weighted": 5.71
+        }
+      ]
+    }
+  },
+  "monthly": {
+    "2025-11": {
+      "start": "2025-11-01",
+      "end": "2025-11-30",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Roronoa Zoro",
+          "avg": 3.09,
+          "games": 11,
+          "weighted": 5.57
+        },
+        {
+          "rank": 2,
+          "player": "Jules Bracke",
+          "avg": 3.82,
+          "games": 11,
+          "weighted": 5.83
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.0,
+          "games": 11,
+          "weighted": 5.9
+        },
+        {
+          "rank": 4,
+          "player": "Stonie",
+          "avg": 3.9,
+          "games": 10,
+          "weighted": 5.97
+        },
+        {
+          "rank": 5,
+          "player": "Kira",
+          "avg": 4.36,
+          "games": 11,
+          "weighted": 6.03
+        },
+        {
+          "rank": 6,
+          "player": "Griffith",
+          "avg": 4.55,
+          "games": 11,
+          "weighted": 6.1
+        },
+        {
+          "rank": 7,
+          "player": "ambufire",
+          "avg": 4.11,
+          "games": 9,
+          "weighted": 6.13
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.22,
+          "games": 9,
+          "weighted": 6.47
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 6.0,
+          "games": 7,
+          "weighted": 6.77
+        }
+      ]
+    },
+    "2025-12": {
+      "start": "2025-12-01",
+      "end": "2025-12-31",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.66,
+          "games": 29,
+          "weighted": 3.87
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 3.69,
+          "games": 26,
+          "weighted": 4.23
+        },
+        {
+          "rank": 3,
+          "player": "Griffith",
+          "avg": 4.29,
+          "games": 28,
+          "weighted": 4.55
+        },
+        {
+          "rank": 4,
+          "player": "Robin",
+          "avg": 4.36,
+          "games": 28,
+          "weighted": 4.61
+        },
+        {
+          "rank": 5,
+          "player": "Kira",
+          "avg": 4.54,
+          "games": 28,
+          "weighted": 4.77
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.45,
+          "games": 22,
+          "weighted": 5.19
+        },
+        {
+          "rank": 7,
+          "player": "oxelo",
+          "avg": 5.57,
+          "games": 23,
+          "weighted": 5.94
+        },
+        {
+          "rank": 8,
+          "player": "Roronoa Zoro",
+          "avg": 3.0,
+          "games": 3,
+          "weighted": 6.61
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 5.88,
+          "games": 8,
+          "weighted": 6.71
+        }
+      ]
+    },
+    "2026-01": {
+      "start": "2026-01-01",
+      "end": "2026-01-31",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Jules Bracke",
+          "avg": 3.86,
+          "games": 28,
+          "weighted": 4.16
+        },
+        {
+          "rank": 2,
+          "player": "Stonie",
+          "avg": 4.13,
+          "games": 30,
+          "weighted": 4.23
+        },
+        {
+          "rank": 3,
+          "player": "Robin",
+          "avg": 4.46,
+          "games": 28,
+          "weighted": 4.71
+        },
+        {
+          "rank": 4,
+          "player": "Kira",
+          "avg": 4.41,
+          "games": 27,
+          "weighted": 4.74
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 4.54,
+          "games": 26,
+          "weighted": 4.94
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.35,
+          "games": 17,
+          "weighted": 5.55
+        },
+        {
+          "rank": 7,
+          "player": "Roronoa Zoro",
+          "avg": 3.79,
+          "games": 14,
+          "weighted": 5.55
+        },
+        {
+          "rank": 8,
+          "player": "oxelo",
+          "avg": 5.55,
+          "games": 22,
+          "weighted": 5.97
+        },
+        {
+          "rank": 9,
+          "player": "Miesvdb",
+          "avg": 6.31,
+          "games": 16,
+          "weighted": 6.65
+        }
+      ]
+    },
+    "2026-02": {
+      "start": "2026-02-01",
+      "end": "2026-02-28",
+      "standings": [
+        {
+          "rank": 1,
+          "player": "Stonie",
+          "avg": 4.18,
+          "games": 22,
+          "weighted": 4.79
+        },
+        {
+          "rank": 2,
+          "player": "Robin",
+          "avg": 4.3,
+          "games": 20,
+          "weighted": 5.07
+        },
+        {
+          "rank": 3,
+          "player": "Jules Bracke",
+          "avg": 4.32,
+          "games": 19,
+          "weighted": 5.18
+        },
+        {
+          "rank": 4,
+          "player": "Miesvdb",
+          "avg": 5.23,
+          "games": 22,
+          "weighted": 5.61
+        },
+        {
+          "rank": 5,
+          "player": "Griffith",
+          "avg": 3.92,
+          "games": 12,
+          "weighted": 5.68
+        },
+        {
+          "rank": 6,
+          "player": "ambufire",
+          "avg": 4.0,
+          "games": 9,
+          "weighted": 6.04
+        },
+        {
+          "rank": 7,
+          "player": "Kira",
+          "avg": 4.5,
+          "games": 8,
+          "weighted": 6.29
+        },
+        {
+          "rank": 8,
+          "player": "Roronoa Zoro",
+          "avg": 7.0,
+          "games": 1,
+          "weighted": 7.0
+        }
+      ]
+    }
+  }
+}
