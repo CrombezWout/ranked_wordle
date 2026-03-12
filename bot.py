@@ -976,6 +976,9 @@ async def wordle_scan(ctx: commands.Context):
     batch_count = 0
 
     async for message in ctx.channel.history(limit=None, oldest_first=True):
+        # Only check bot messages — skip human messages for speed
+        if not message.author.bot:
+            continue
         batch_count += 1
         # Pause briefly every 50 messages to avoid rate limits
         if batch_count % 50 == 0:
