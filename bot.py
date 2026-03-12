@@ -282,12 +282,12 @@ def recalculate_all_ranked_points(scores_data: dict) -> None:
                     break
         award_daily_points(rp, daily, date_str)
 
-    # Weekly points for each completed week
+    # Weekly points for each completed week (Mon-Fri)
     min_d = date.fromisoformat(sorted_dates[0])
     mon = min_d - timedelta(days=min_d.weekday())
-    while mon + timedelta(days=6) < today:
-        sun = mon + timedelta(days=6)
-        lb = get_period_leaderboard(scores_data, mon.isoformat(), sun.isoformat(), 7)
+    while mon + timedelta(days=4) < today:
+        fri = mon + timedelta(days=4)
+        lb = get_period_leaderboard(scores_data, mon.isoformat(), fri.isoformat(), 5)
         if lb:
             award_period_points(rp, lb, WEEKLY_FIRST, WEEKLY_LAST)
         mon += timedelta(days=7)
@@ -324,16 +324,16 @@ def rebuild_ranked_history(scores_data: dict) -> None:
     today = datetime.now(timezone.utc).date()
     min_d = date.fromisoformat(min(all_dates))
 
-    # All completed weeks
+    # All completed weeks (Mon-Fri)
     mon = min_d - timedelta(days=min_d.weekday())
-    while mon + timedelta(days=6) < today:
-        sun = mon + timedelta(days=6)
+    while mon + timedelta(days=4) < today:
+        fri = mon + timedelta(days=4)
         week_key = f"{mon.isocalendar()[0]}-W{mon.isocalendar()[1]:02d}"
-        lb = get_period_leaderboard(scores_data, mon.isoformat(), sun.isoformat(), 7)
+        lb = get_period_leaderboard(scores_data, mon.isoformat(), fri.isoformat(), 5)
         if lb:
             standings = [{"rank": r, "player": p, "avg": round(a, 2), "games": g, "weighted": round(w, 2)}
                          for r, (p, a, g, w) in enumerate(lb, 1)]
-            history["weekly"][week_key] = {"start": mon.isoformat(), "end": sun.isoformat(), "standings": standings}
+            history["weekly"][week_key] = {"start": mon.isoformat(), "end": fri.isoformat(), "standings": standings}
         mon += timedelta(days=7)
 
     # All completed months
@@ -374,12 +374,12 @@ def save_ranked_history(data: dict) -> None:
 
 
 def get_current_week_range() -> tuple[str, str, int]:
-    """Return (start_date, end_date, days_elapsed) for the current ISO week (Mon-Sun)."""
+    """Return (start_date, end_date, days_elapsed) for the current ranked week (Mon-Fri)."""
     today = datetime.now(timezone.utc).date()
     monday = today - timedelta(days=today.weekday())  # Monday of this week
-    sunday = monday + timedelta(days=6)
-    days_elapsed = (today - monday).days + 1  # 1 on Monday, 7 on Sunday
-    return monday.isoformat(), sunday.isoformat(), days_elapsed
+    friday = monday + timedelta(days=4)
+    days_elapsed = min((today - monday).days + 1, 5)  # 1 on Monday, 5 on Friday
+    return monday.isoformat(), friday.isoformat(), days_elapsed
 
 
 def get_current_month_range() -> tuple[str, str, int]:
@@ -427,19 +427,19 @@ def archive_completed_periods(scores_data: dict) -> None:
     today = datetime.now(timezone.utc).date()
     points_changed = False
 
-    # Archive previous week
+    # Archive previous week (Mon-Fri)
     last_monday = today - timedelta(days=today.weekday() + 7)
-    last_sunday = last_monday + timedelta(days=6)
+    last_friday = last_monday + timedelta(days=4)
     week_key = f"{last_monday.isocalendar()[0]}-W{last_monday.isocalendar()[1]:02d}"
 
     if week_key not in history["weekly"]:
-        lb = get_period_leaderboard(scores_data, last_monday.isoformat(), last_sunday.isoformat(), 7)
+        lb = get_period_leaderboard(scores_data, last_monday.isoformat(), last_friday.isoformat(), 5)
         if lb:
             standings = [{"rank": r, "player": p, "avg": round(a, 2), "games": g, "weighted": round(w, 2)}
                          for r, (p, a, g, w) in enumerate(lb, 1)]
             history["weekly"][week_key] = {
                 "start": last_monday.isoformat(),
-                "end": last_sunday.isoformat(),
+                "end": last_friday.isoformat(),
                 "standings": standings
             }
             award_period_points(rp_data, lb, WEEKLY_FIRST, WEEKLY_LAST)
@@ -660,7 +660,7 @@ async def wordle_leaderboard(ctx: commands.Context, *, arg: str = ""):
         lines = []
         for i, (player, avg, games, weighted) in enumerate(leaderboard, start=1):
             rank = rank_emojis.get(i, f"**{i}.**")
-            lines.append(f"{rank} **{player}** \u2014 {weighted:.2f} weighted \u00b7 {avg:.2f} avg \u00b7 {games}/7 games")
+            lines.append(f"{rank} **{player}** \u2014 {weighted:.2f} weighted \u00b7 {avg:.2f} avg \u00b7 {games}/5 games")
         embed = discord.Embed(
             title="\U0001f4c5 Wordle Leaderboard \u2014 Last 7 Days",
             description="\n".join(lines),
@@ -870,11 +870,11 @@ async def wordle_ranked(ctx: commands.Context, *, arg: str = ""):
         )
 
     embed = discord.Embed(
-        title=f"🏅 Ranked — {week_label} (Day {days_elapsed}/7)",
+        title=f"🏅 Ranked — {week_label} (Day {days_elapsed}/5)",
         description="\n".join(lines),
         color=discord.Color.teal(),
     )
-    embed.set_footer(text="Fresh competition each week · Missed days count as 7 · Lower is better")
+    embed.set_footer(text="Fresh competition Mon–Fri · Missed days count as 7 · Lower is better")
     await ctx.send(embed=embed)
 
 
