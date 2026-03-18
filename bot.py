@@ -254,6 +254,12 @@ def get_filtered_leaderboard(data: dict, days: int) -> list[tuple[str, float, in
     return leaderboard
 
 
+def get_latest_score_date(data: dict) -> str | None:
+    """Return the latest recorded score date across all players."""
+    all_dates = [d for info in data.values() for d in info.get("dates", [])]
+    return max(all_dates) if all_dates else None
+
+
 def get_period_leaderboard(
     data: dict, start_date: str, end_date: str, total_days: int
 ) -> list[tuple[str, float, int, float]]:
@@ -1559,12 +1565,20 @@ async def wordle_rank(ctx: commands.Context, *, arg: str = ""):
         icon = RANK_ICONS[rank_name]
         lines.append(f"**{i}.** {icon} **{player}** — {rank_name} ({pts} pts)")
 
+    latest_score_date = get_latest_score_date(load_scores())
+    latest_label = latest_score_date if latest_score_date else "no scores yet"
+
     embed = discord.Embed(
         title="🏅 Ranked Standings",
         description="\n".join(lines),
         color=discord.Color.dark_gold(),
     )
-    embed.set_footer(text="Daily: 1st +3 / last -2 · Weekly/Monthly: position-based points")
+    embed.set_footer(
+        text=(
+            "Daily: 1st +3 / last -2 · Weekly/Monthly: position-based points"
+            f" · Last score date: {latest_label}"
+        )
+    )
     await ctx.send(embed=embed)
 
 
