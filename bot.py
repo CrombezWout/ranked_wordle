@@ -1012,13 +1012,35 @@ async def on_message(message: discord.Message):
             if added > 0:
                 # Award daily ranked points
                 rp_data = load_ranked_points()
+                participants = list(dict.fromkeys([player for player, _ in results]))
+                before_points = {}
+                for player in participants:
+                    ensure_player_rp(rp_data, player)
+                    before_points[player] = rp_data[player]["points"]
+
                 award_daily_points(rp_data, results, date_key)
+
+                daily_lines = []
+                for player in participants:
+                    new_points = rp_data[player]["points"]
+                    delta = new_points - before_points[player]
+                    if delta != 0:
+                        sign = "+" if delta > 0 else ""
+                        daily_lines.append(f"• {player}: {sign}{delta} ({new_points} total)")
+
                 save_ranked_points(rp_data)
                 # Archive completed periods (also awards period points)
                 announcements = archive_completed_periods(load_scores(), get_rank_reset_cutoff_date())
-                await message.channel.send(
-                    f"✅ Recorded {added} Wordle score(s) for today!"
-                )
+                if daily_lines:
+                    await message.channel.send(
+                        f"✅ Recorded {added} Wordle score(s) for today!\n"
+                        f"🎯 Daily points update:\n" + "\n".join(daily_lines)
+                    )
+                else:
+                    await message.channel.send(
+                        f"✅ Recorded {added} Wordle score(s) for today!\n"
+                        "🎯 Daily points update: no point change today."
+                    )
                 for ann in announcements:
                     await message.channel.send(embed=format_period_embed(ann))
             else:
