@@ -2,6 +2,7 @@ import os
 import re
 import json
 import asyncio
+import traceback
 from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 
@@ -52,6 +53,40 @@ WORDLE_BOT_ID = 1211781489931452447
 # --- Score persistence ---
 
 
+def _atomic_json_write(path: Path, data: dict) -> None:
+    """Write JSON atomically to avoid partial/corrupted files."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    with open(tmp_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+    os.replace(tmp_path, path)
+
+
+def ensure_storage_files() -> None:
+    """Create missing JSON storage files with safe defaults."""
+    defaults = {
+        SCORES_FILE: {},
+        RANKED_POINTS_FILE: {},
+        RANKED_HISTORY_FILE: {"weekly": {}, "monthly": {}},
+        STATE_FILE: {},
+    }
+    for path, default_value in defaults.items():
+        if not path.exists():
+            _atomic_json_write(path, default_value)
+
+
+def verify_storage_writable() -> tuple[bool, str]:
+    """Return whether bot storage files are writable by current process."""
+    try:
+        ensure_storage_files()
+        for p in (SCORES_FILE, RANKED_POINTS_FILE, RANKED_HISTORY_FILE, STATE_FILE):
+            with open(p, "a", encoding="utf-8"):
+                pass
+        return True, "Storage files are writable."
+    except Exception as e:
+        return False, f"Storage not writable: {e}"
+
+
 def load_scores() -> dict:
     if SCORES_FILE.exists():
         with open(SCORES_FILE, "r", encoding="utf-8") as f:
@@ -60,8 +95,7 @@ def load_scores() -> dict:
 
 
 def save_scores(data: dict) -> None:
-    with open(SCORES_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    _atomic_json_write(SCORES_FILE, data)
 
 
 # --- Wordle message parser ---
@@ -249,8 +283,7 @@ def load_ranked_points() -> dict:
 
 
 def save_ranked_points(data: dict) -> None:
-    with open(RANKED_POINTS_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    _atomic_json_write(RANKED_POINTS_FILE, data)
 
 
 def get_rank_name(points: int) -> str:
@@ -427,8 +460,7 @@ def load_ranked_history() -> dict:
 
 
 def save_ranked_history(data: dict) -> None:
-    with open(RANKED_HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    _atomic_json_write(RANKED_HISTORY_FILE, data)
 
 def assign_week_numbers(history: dict) -> None:
     """Assign sequential labels to weekly history: Week 1, Week 2, ..."""
@@ -857,8 +889,7 @@ def load_state() -> dict:
 
 
 def save_state(data: dict) -> None:
-    with open(STATE_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
+    _atomic_json_write(STATE_FILE, data)
 
 
 # --- Bot setup ---
@@ -873,6 +904,11 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     print(f"Wordle Tracker is online as {bot.user}")
+
+    storage_ok, storage_msg = verify_storage_writable()
+    print(storage_msg)
+    if not storage_ok:
+        print("WARNING: Bot cannot write score files. Score updates will fail until permissions/path are fixed.")
 
     reset_applied, due_dates, affected = apply_due_rank_resets()
     if reset_applied:
@@ -963,32 +999,40 @@ async def on_message(message: discord.Message):
     # Try to parse Wordle results from any bot message (or any message matching the format)
     results = parse_wordle_message(message.content, member_map)
     if results:
-        reset_applied, due_dates, affected = apply_due_rank_resets()
-        if reset_applied:
-            await message.channel.send(
-                f"🔄 Scheduled rank reset applied ({', '.join(due_dates)}). "
-                f"Reset {affected} player(s) to 🟤 Bronze."
-            )
+        try:
+            reset_applied, due_dates, affected = apply_due_rank_resets()
+            if reset_applied:
+                await message.channel.send(
+                    f"🔄 Scheduled rank reset applied ({', '.join(due_dates)}). "
+                    f"Reset {affected} player(s) to 🟤 Bronze."
+                )
 
-        date_key = get_date_key(message.created_at)
-        added = record_scores(results, date_key)
-        if added > 0:
-            # Award daily ranked points
-            rp_data = load_ranked_points()
-            award_daily_points(rp_data, results, date_key)
-            save_ranked_points(rp_data)
-            # Archive completed periods (also awards period points)
-            announcements = archive_completed_periods(load_scores(), get_rank_reset_cutoff_date())
-            await message.channel.send(
-                f"✅ Recorded {added} Wordle score(s) for today!"
-            )
-            for ann in announcements:
-                await message.channel.send(embed=format_period_embed(ann))
-        else:
-            await message.channel.send("ℹ️ These scores were already recorded.")
+            date_key = get_date_key(message.created_at)
+            added = record_scores(results, date_key)
+            if added > 0:
+                # Award daily ranked points
+                rp_data = load_ranked_points()
+                award_daily_points(rp_data, results, date_key)
+                save_ranked_points(rp_data)
+                # Archive completed periods (also awards period points)
+                announcements = archive_completed_periods(load_scores(), get_rank_reset_cutoff_date())
+                await message.channel.send(
+                    f"✅ Recorded {added} Wordle score(s) for today!"
+                )
+                for ann in announcements:
+                    await message.channel.send(embed=format_period_embed(ann))
+            else:
+                await message.channel.send("ℹ️ These scores were already recorded.")
 
-        # Track this channel + message for catch-up after restarts
-        save_state({"channel_id": message.channel.id, "last_message_id": message.id})
+            # Track this channel + message for catch-up after restarts
+            save_state({"channel_id": message.channel.id, "last_message_id": message.id})
+        except Exception as e:
+            print(f"Error while saving Wordle results: {e}")
+            traceback.print_exc()
+            await message.channel.send(
+                "⚠️ I parsed the results, but failed to save score files. "
+                "Please check bot file permissions and service logs."
+            )
 
     # Ensure prefix commands still work
     await bot.process_commands(message)
