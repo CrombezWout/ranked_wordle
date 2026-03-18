@@ -1039,12 +1039,12 @@ async def on_message(message: discord.Message):
                 announcements = archive_completed_periods(load_scores(), get_rank_reset_cutoff_date())
                 if daily_lines:
                     await message.channel.send(
-                        f"✅ Recorded {added} Wordle score(s) for today!\n"
+                        f"✅ Recorded {added} Wordle score(s) for **{date_key}**.\n"
                         f"🎯 Daily points update:\n" + "\n".join(daily_lines)
                     )
                 else:
                     await message.channel.send(
-                        f"✅ Recorded {added} Wordle score(s) for today!\n"
+                        f"✅ Recorded {added} Wordle score(s) for **{date_key}**.\n"
                         "🎯 Daily points update: no point change today."
                     )
                 for ann in announcements:
